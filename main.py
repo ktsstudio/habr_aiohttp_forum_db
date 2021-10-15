@@ -2,6 +2,7 @@ import aiohttp_jinja2
 import jinja2
 from aiohttp import web
 
+from app.forum.routes import setup_routes as setup_forum_routes
 from app.settings import config, BASE_DIR
 from app.store.database.accessor import PostgresAccessor
 
@@ -24,8 +25,6 @@ def setup_accessors(application):
 
 # настроим url-пути для доступа к нашему будущему приложению
 def setup_routes(application):
-    from app.forum.routes import setup_routes as setup_forum_routes
-
     setup_forum_routes(application)
 
 
